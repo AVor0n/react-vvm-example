@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react-refresh/only-export-components */
-import { Link, Navigate, Outlet, Route, createRoutesFromElements } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
-import { childView } from '@yoskutik/react-vvm';
-import type { AppViewModel } from './AppViewModel';
 import { Skeleton } from '@gravity-ui/uikit';
+import { childView } from '@yoskutik/react-vvm';
+import { Suspense, lazy } from 'react';
+import { Link, Navigate, Outlet, Route, createRoutesFromElements } from 'react-router-dom';
+import type { AppViewModel } from './AppViewModel';
 
 const HomePage = lazy(() => import('@pages/Home'));
 const AuthPage = lazy(() => import('@pages/Auth'));
@@ -16,13 +17,11 @@ const RequireAuth = childView<AppViewModel>()(({ viewModel }) => {
   return <Outlet />;
 });
 
-const PageLoader = () => {
-  return (
-    <Suspense fallback={<Skeleton style={{ height: '100vh' }} />}>
-      <Outlet />
-    </Suspense>
-  );
-};
+const PageLoader = () => (
+  <Suspense fallback={<Skeleton style={{ height: '100vh' }} />}>
+    <Outlet />
+  </Suspense>
+);
 
 export const routes = createRoutesFromElements([
   <Route element={<PageLoader />}>

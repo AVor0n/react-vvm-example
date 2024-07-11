@@ -1,21 +1,31 @@
+import { ViewModel } from '@yoskutik/react-vvm';
 import { action, computed, makeObservable, observable } from 'mobx';
 import { Service } from 'typedi';
-import { ViewModel } from '@yoskutik/react-vvm';
 
 @Service({ transient: true })
 export class RegistrationViewModel extends ViewModel {
   @observable step: 'chooseType' | 'enterData' | 'confirm' = 'chooseType';
+
   @observable name = '';
+
   @observable email = '';
+
   @observable phone = '';
+
   @observable password = '';
+
   @observable confirmCode = '';
+
   @observable registrationType: 'email' | 'phone' | undefined = undefined;
 
   @observable nameError = '';
+
   @observable emailError = '';
+
   @observable phoneError = '';
+
   @observable passwordError = '';
+
   @observable confirmCodeError = '';
 
   @observable isLoading = false;

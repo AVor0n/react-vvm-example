@@ -1,11 +1,11 @@
 import { Tabs } from '@gravity-ui/uikit';
-import { useState } from 'react';
-import { Registration } from './Registration';
-import { Login } from './Login';
-import * as styles from './AuthPage.module.scss';
-import { Navigate, useLocation } from 'react-router-dom';
 import { view } from '@yoskutik/react-vvm';
+import { useState } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 import { AuthPageViewModel } from './AuthPageViewModel';
+import { Login } from './Login';
+import { Registration } from './Registration';
+import * as styles from './AuthPage.module.scss';
 
 export const AuthPage = view(AuthPageViewModel)(({ viewModel }) => {
   const { pathname } = useLocation();

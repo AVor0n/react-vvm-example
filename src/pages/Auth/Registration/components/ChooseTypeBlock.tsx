@@ -1,8 +1,8 @@
-import { childView } from '@yoskutik/react-vvm';
-import { RegistrationViewModel } from '../RegistrationViewModel';
 import { ChevronRight } from '@gravity-ui/icons';
 import { Button, Icon } from '@gravity-ui/uikit';
+import { childView } from '@yoskutik/react-vvm';
 import * as styles from '../Registration.module.scss';
+import { type RegistrationViewModel } from '../RegistrationViewModel';
 
 export const ChooseTypeBlock = childView<RegistrationViewModel>()(({ viewModel }) => (
   <div className={styles.block}>

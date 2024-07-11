@@ -1,9 +1,11 @@
+import { toaster } from '@gravity-ui/uikit/toaster-singleton-react-18';
 import { action, computed, makeObservable, observable } from 'mobx';
 import { Service } from 'typedi';
 import { RouterService } from './RouterService';
-import { toaster } from '@gravity-ui/uikit/toaster-singleton-react-18';
 
-type User = { login: string };
+interface User {
+  login: string;
+}
 
 @Service()
 export class AuthService {
@@ -16,7 +18,7 @@ export class AuthService {
   constructor(private routes: RouterService) {
     makeObservable(this);
     try {
-      const user = JSON.parse(localStorage.getItem('user') ?? 'null');
+      const user = JSON.parse(localStorage.getItem('user') ?? 'null') as User | null;
       if (user) {
         this.setUserInfo(user);
       } else {
@@ -33,7 +35,9 @@ export class AuthService {
   };
 
   @action public login = async (data: { login: string; password: string }) => {
-    await new Promise((res) => setTimeout(res, 3000));
+    await new Promise((res) => {
+      setTimeout(res, 3000);
+    });
     this.setUserInfo(data);
     toaster.add({
       name: 'login',
@@ -46,6 +50,6 @@ export class AuthService {
   @action public logout = () => {
     this.userInfo = null;
     localStorage.setItem('user', '');
-    this.routes.router?.navigate('/auth');
+    this.routes.router.navigate('/auth');
   };
 }

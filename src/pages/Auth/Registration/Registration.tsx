@@ -1,6 +1,6 @@
 import { view } from '@yoskutik/react-vvm';
-import { RegistrationViewModel } from './RegistrationViewModel';
 import { ChooseTypeBlock, ConfirmBlock, EnterDataBlock } from './components';
+import { RegistrationViewModel } from './RegistrationViewModel';
 import * as styles from './Registration.module.scss';
 
 export const Registration = view(RegistrationViewModel)(({ viewModel }) => (

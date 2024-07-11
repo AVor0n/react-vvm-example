@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ComponentType, FocusEvent, PropsWithChildren, useState, useEffect } from 'react';
-import { observer } from 'mobx-react';
 import { runInAction } from 'mobx';
+import { observer } from 'mobx-react';
+import { type ComponentType, type FocusEvent, type PropsWithChildren, useState, useEffect } from 'react';
 import { TextBox, type TextBoxProps } from '../TextBox';
 import type { FormSchema } from '@yoskutik/mobx-form-schema';
 
@@ -37,23 +38,27 @@ export const Field = observer(
     object,
     bind,
     name,
-    error = object.errors?.[bind],
+    error = object.errors[bind],
     ...props
   }: FieldProps<T, TValue, TObject>) => {
     const Component = component as ComponentType<any>;
     const [visited, setVisited] = useState(false);
 
-    const compName = name || bind.toString().split('.')[0];
+    const compName = name ?? bind.toString().split('.')[0];
     const onValueChange = (value: any) => {
-      runInAction(() => (object[bind] = value));
+      runInAction(() => {
+        object[bind] = value;
+      });
       setVisited(true);
-      onChange && onChange(value);
+      onChange?.(value as TValue);
     };
 
     const onFieldBlur = (event: FocusEvent<HTMLInputElement>) => {
-      component === TextBox && onValueChange((object[bind] as any)?.trim());
+      if (component === TextBox) {
+        onValueChange(object[bind]);
+      }
       setVisited(true);
-      onBlur && onBlur(event);
+      onBlur?.(event);
     };
 
     useEffect(() => {

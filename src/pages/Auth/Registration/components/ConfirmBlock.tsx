@@ -1,8 +1,8 @@
-import { childView } from '@yoskutik/react-vvm';
-import { RegistrationViewModel } from '../RegistrationViewModel';
-import { TextBox } from '../../../../components';
 import { Button } from '@gravity-ui/uikit';
+import { childView } from '@yoskutik/react-vvm';
+import { TextBox } from '../../../../components';
 import * as styles from '../Registration.module.scss';
+import { type RegistrationViewModel } from '../RegistrationViewModel';
 
 export const ConfirmBlock = childView<RegistrationViewModel>()(({ viewModel }) => (
   <form className={styles.block}>

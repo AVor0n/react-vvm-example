@@ -1,4 +1,4 @@
-import { PasswordInput, PasswordInputProps } from '@gravity-ui/components';
+import { PasswordInput, type PasswordInputProps } from '@gravity-ui/components';
 import { useState } from 'react';
 
 interface PasswordProps extends Omit<PasswordInputProps, 'errorMessage' | 'onUpdate' | 'onChange'> {

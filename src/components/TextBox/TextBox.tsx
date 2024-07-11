@@ -1,5 +1,5 @@
-import { TextInput, TextInputProps } from '@gravity-ui/uikit';
-import { ChangeEvent, useId, useState } from 'react';
+import { TextInput, type TextInputProps } from '@gravity-ui/uikit';
+import { type ChangeEvent, useId, useState } from 'react';
 import { LabelableContainer } from '../LabelableContainer';
 
 export interface TextBoxProps extends Omit<TextInputProps, 'onChange' | 'errorMessage'> {
@@ -39,5 +39,5 @@ export const TextBox = ({ label, size = 'xl', ...props }: TextBoxProps) => {
     />
   );
 
-  return label ? <LabelableContainer label={label} children={textbox} /> : textbox;
+  return label ? <LabelableContainer label={label}>{textbox}</LabelableContainer> : textbox;
 };
