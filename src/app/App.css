@@ -1,0 +1,26 @@
+@import '@gravity-ui/uikit/styles/fonts.css';
+@import '@gravity-ui/uikit/styles/styles.css';
+
+.g-root {
+  --g-color-base-background: #f6f7f8;
+  --g-color-base-brand: #f73232;
+  --g-color-base-brand-hover: #b52828;
+  --g-color-line-brand: #f73232;
+  --g-color-text-brand: #f73232;
+  --g-color-text-brand-contrast: #fff;
+  --g-color-base-selection: #ffb1b1;
+
+  --g-border-radius-xs: 1px;
+  --g-border-radius-s: 1px;
+  --g-border-radius-m: 2px;
+  --g-border-radius-l: 4px;
+  --g-border-radius-xl: 4px;
+  --g-border-radius-2xl: 8px;
+}
+
+body,
+#root {
+  width: 100%;
+  margin: 0;
+  height: 100vh;
+}

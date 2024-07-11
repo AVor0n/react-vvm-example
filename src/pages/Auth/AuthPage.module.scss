@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+  inline-size: 100%;
+  max-inline-size: 400px;
+  margin-inline: auto;
+  padding-inline: 40px;
+  box-sizing: border-box;
+}
+
+.logo {
+  max-inline-size: 180px;
+  max-block-size: 180px;
+  margin-block: 60px;
+}
+
+.tabs {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  justify-items: center;
+  inline-size: 100%;
+
+  :global(.g-tabs__item) {
+    display: flex;
+    justify-content: center;
+    inline-size: 100%;
+    margin-inline: 0;
+  }
+}
