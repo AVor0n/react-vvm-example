@@ -50,6 +50,6 @@ export class AuthService {
   @action public logout = () => {
     this.userInfo = null;
     localStorage.setItem('user', '');
-    this.routes.router.navigate('/auth');
+    this.routes.router?.navigate('/auth');
   };
 }

@@ -21,6 +21,6 @@ export class LoginViewModel extends ViewModel {
   @action onLogin = async () => {
     this.isLoading = true;
     await this.auth.login(this.model);
-    this.routes.router.navigate('/home');
+    this.routes.router?.navigate('/home');
   };
 }

@@ -11,7 +11,7 @@ settings.loadLocale('ru').then(() => {
 export const App = view(AppViewModel)(({ viewModel }) => (
   <ThemeProvider theme="light">
     <ToasterProvider>
-      <RouterProvider router={viewModel.router.router} />
+      <RouterProvider router={viewModel.router.router!} />
       <ToasterComponent />
     </ToasterProvider>
   </ThemeProvider>

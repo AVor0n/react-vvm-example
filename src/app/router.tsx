@@ -3,11 +3,12 @@
 import { Skeleton } from '@gravity-ui/uikit';
 import { childView } from '@yoskutik/react-vvm';
 import { Suspense, lazy } from 'react';
-import { Link, Navigate, Outlet, Route, createRoutesFromElements } from 'react-router-dom';
+import { Navigate, Outlet, Route, createRoutesFromElements } from 'react-router-dom';
 import type { AppViewModel } from './AppViewModel';
 
 const HomePage = lazy(() => import('@pages/Home'));
 const AuthPage = lazy(() => import('@pages/Auth'));
+const NotFoundPage = lazy(() => import('@pages/NotFound'));
 
 const RequireAuth = childView<AppViewModel>()(({ viewModel }) => {
   if (!viewModel.auth.userIsAuthenticated) {
@@ -29,14 +30,6 @@ export const routes = createRoutesFromElements([
     <Route element={<RequireAuth />}>
       <Route path="/home" element={<HomePage />} />,
     </Route>
-    <Route
-      path="/*"
-      element={
-        <div>
-          <h1>Page not found!</h1>
-          <Link to="/home">Go to homepage</Link>
-        </div>
-      }
-    />
+    <Route path="*" element={<NotFoundPage />} />
   </Route>,
 ]);
