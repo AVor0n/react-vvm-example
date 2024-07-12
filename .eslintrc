@@ -75,6 +75,7 @@
     "@typescript-eslint/no-use-before-define": ["error", { "functions": false }],
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/prefer-promise-reject-errors": "off",
     "@typescript-eslint/no-confusing-void-expression": ["error", { "ignoreArrowShorthand": true }],
     "import/no-anonymous-default-export": "error",
     "import/no-default-export": "off",
@@ -92,21 +93,21 @@
         "newlines-between": "never",
         "alphabetize": {
           "order": "asc",
-          "caseInsensitive": true
+          "caseInsensitive": true,
         },
         "pathGroups": [
           {
             "pattern": "@(components)|(pages)|(services)|(ui)|(lib)/*",
-            "group": "internal"
+            "group": "internal",
           },
           {
             "pattern": "./*.module.scss",
             "group": "object",
-            "position": "after"
-          }
-        ]
-      }
-    ]
+            "position": "after",
+          },
+        ],
+      },
+    ],
   },
   "overrides": [
     {

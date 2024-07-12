@@ -22,12 +22,14 @@
     "noUncheckedIndexedAccess": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
+    "useUnknownInCatchVariables": true,
 
     "baseUrl": ".",
     "paths": {
       "@utils/*": ["./src/utils/*"],
       "@components": ["./src/components"],
       "@pages/*": ["./src/pages/*"],
+      "@store": ["./src/store"],
       "@services": ["./src/services"]
     }
   },
